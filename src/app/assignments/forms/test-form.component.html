@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- Template driven form -->
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            ngModel
+            #email="ngModel"
+            required>
+            <label *ngIf="!email.valid && email.touched">Enter email</label>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            ngModel
+            #password="ngModel"
+            required>
+            <label *ngIf="!password.valid && password.touched">Enter password</label>
+        </div>
+        <div class="form-group">
+          <label for="subscriptions">Subscriptions</label>
+          <select id="subscriptions" name="subscriptions" class="form-control" [ngModel]="defaultSubscription" #subscription="ngModel">
+            <option value="1">Basic</option>
+            <option value="2">Advanced</option>
+            <option value="3">Pro</option>
+          </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+      <!-- Reactive form -->
+    </div>
+  </div>
+</div>

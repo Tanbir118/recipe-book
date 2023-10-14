@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <h3>Self Exercises</h3>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Data/Event/Attribute binding</h4>
+    </div>
+    <div class="col-xs-12">
+      <label><b>Username:</b></label>
+      <input type="text" class="form-control" [(ngModel)]="userName"/>
+      <br>
+      <button class="btn btn-primary" (click)="resetName()" [disabled]="!userName">Reset</button>
+      <br>
+      <p><b>Typed Name:</b> {{userName}}</p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Directives</h4>
+    </div>
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="increaseCount()" [disabled]="!userName">Display Dates</button>
+      <br>
+      <br>
+      <div
+      *ngFor="let count of clickedCountArray; let i = index"
+      [ngStyle]="{backgroundColor: getColor(i + 1)}"
+      [ngClass]="{'text-color': setTextColor(i + 1)}"
+      >
+      Clicked count: {{count}}</div>
+    </div>
+  </div>
+</div>
